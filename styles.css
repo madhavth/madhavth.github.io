@@ -1,0 +1,19 @@
+#myPhoto {
+    height: 350px;
+}
+
+#validators {
+    flex-direction: row;
+    margin-top: 16px;
+    position: relative;
+    margin-left: 60px;
+}
+
+footer {
+    flex-direction: row ;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: cyan;
+    padding: 4px;
+}
