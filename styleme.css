@@ -1,0 +1,62 @@
+body {
+    padding: 12px;
+    margin: 0;
+    width: 100%;
+    background-color: #bbff9eff;
+}
+
+.moodImage {
+    width: 300px;
+    height: 300px;
+}
+
+.topics {
+    margin: 6px;
+    padding-bottom: 12px;
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-family: "Arial Black", serif;
+}
+
+h3 {
+    color: darkblue;
+    font-family: monospace;
+}
+
+text {
+    color: green;
+    font-style: italic;
+    font-family: "Courier 10 Pitch", serif;
+}
+
+.description {
+    text-align: start;
+    font-weight: bold;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 16px;
+}
+
+hr {
+    background-color: cadetblue;
+    height: 1px;
+    border: none;
+}
+
+a {
+  background-color: transparent;
+}
+
+.moods {
+    display: flex;
+    justify-content: start;
+    padding: 12px;
+}
+
+li {
+    padding-bottom: 8px;
+}
