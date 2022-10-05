@@ -57,8 +57,20 @@ a {
     padding: 12px;
 }
 
-li {
+ol {
+    counter-reset: my-custom-counter 4;
+    list-style: none;
+}
+
+ol li {
+    counter-increment: my-custom-counter -1;
     padding-bottom: 8px;
+}
+
+ol li::before {
+    content: counter(my-custom-counter) '. ';
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 a:link {
@@ -84,6 +96,10 @@ a:active {
 
 div.type {
     color: #0F00FF;
+}
+
+div.value {
+    padding-left: 24pt;
 }
 
 #validators {
