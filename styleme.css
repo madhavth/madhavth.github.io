@@ -27,7 +27,7 @@ h3 {
     font-family: monospace;
 }
 
-text {
+.highlight {
     color: green;
     font-style: italic;
     font-family: "Courier 10 Pitch", serif;
