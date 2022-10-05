@@ -10,7 +10,7 @@
 }
 
 footer {
-    flex-direction: row ;
+    flex-direction: row;
     position: absolute;
     bottom: 0;
     width: 100%;

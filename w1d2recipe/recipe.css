@@ -1,4 +1,4 @@
-h1,h2 {
+h1, h2 {
     color: #A4A400;
     background-color: #F0F0F0;
     font-family: "Lucida Sans Unicode", "Helvetica", "Arial Black", sans-serif;
@@ -46,4 +46,8 @@ div.links {
 
 li {
     list-style-image: url("pie_bullet.png");
+}
+
+span#strikeThroughText {
+    text-decoration: line-through;
 }
