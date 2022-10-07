@@ -2,25 +2,30 @@
 <html lang="en">
 
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="responsive_bootstrap.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <title>Responsive Design</title>
 </head>
 
 <body>
 <div id="container">
-    <div class="header">Header</div>
-    <div class="menu-list">
-        <div class="menu">Menu 1</div>
-        <div class="menu">Menu 2</div>
-        <div class="menu">Menu 3</div>
+    <div class="header text-center p-3 text-dark">Header</div>
+    <div class="menu-list d-flex text-light">
+        <div class="menu p-3 align-self-center">Menu 1</div>
+        <div class="menu p-3 align-self-center">Menu 2</div>
+        <div class="menu p-3 align-self-center">Menu 3</div>
     </div>
-    <div class="columns">
-        <div class="column column1">Column1</div>
-        <div class="column column2">Column2</div>
-        <div class="column column3">Column3</div>
+    <div class="columns d-flex flex-row">
+        <div class="column column1 col-6 col-xs-6 col-sm-6 col-md-4">Column1</div>
+        <div class="column column2 col-6 col-xs-6 col-sm-6 col-md-4">Column2</div>
+        <div class="column column3 col-12 col-xs-12 col-sm-12 col-md-4">Column3</div>
     </div>
-    <div class="footer">
+    <div class="footer text-light p-4 align-content-center text-center align-self-center">
         Footer
     </div>
 </div>
