@@ -1,11 +1,11 @@
-import {ANIMATIONS} from './animations';
+import './animations.js';
 
 let animationId = null;
 let isTurboMode = false;
 let whichOne = '';
 let sizeValues = [];
 let isPlaying = false;
-let currentAnimations = [];
+let lastFrameIndex = 0;
 
 function initSize() {
     sizeValues["Tiny"] = "7pt";
@@ -24,12 +24,14 @@ function startup() {
     const textSize = document.getElementById('fontsize');
     textSize.addEventListener('change', function () {
         textSizeChanged(textSize);
-    })
+    });
+    textSizeChanged(textSize);
 
     const turboCheckButton = document.getElementById('turbo');
     turboCheckButton.addEventListener('change', function () {
         toggleTurbo(turboCheckButton.checked);
     });
+    isTurboMode = turboCheckButton.checked;
 
     const startButton = document.getElementById('start');
     startButton.addEventListener('click', function () {
@@ -48,24 +50,35 @@ function startup() {
 
     const textArea = document.getElementById('text-area');
     textArea.textContent = ANIMATIONS[whichOne];
-
 }
 
 function startAnimation() {
     isPlaying = true;
-    if (animationId == null) {
-        animationId = setInterval(() => {
+    toggleButtonDisability();
 
+    if (animationId == null) {
+        const textArea = document.getElementById('text-area');
+
+        const animations = ANIMATIONS[whichOne].split('=====\n');
+        const length = animations.length;
+
+        animationId = setInterval(() => {
+            lastFrameIndex = (lastFrameIndex + 1) % length;
+            textArea.textContent = animations[lastFrameIndex];
         }, isTurboMode ? 50 : 250);
     }
 }
 
-function stopAnimation() {
+function stopAnimation(resetFrameIndex = true) {
     isPlaying = false;
+    toggleButtonDisability();
     if (animationId != null) {
         clearInterval(animationId);
         animationId = null;
 
+        if (resetFrameIndex) {
+            lastFrameIndex = 0;
+        }
     }
 }
 
@@ -78,16 +91,22 @@ function animationChanged(newAnimation) {
 }
 
 function textSizeChanged(textSizeOption) {
-    textSizeOption.style.fontSize = sizeValues[textSizeOption.value];
+    document.getElementById('text-area')
+        .style.fontSize = sizeValues[textSizeOption.value];
 }
 
 
 function toggleTurbo(isChecked) {
+    isTurboMode = isChecked;
     if (isPlaying) {
-        stopAnimation();
+        stopAnimation(false);
         startAnimation();
     }
-    isTurboMode = isChecked;
+}
+
+function toggleButtonDisability() {
+    document.getElementById('start').disabled = isPlaying;
+    document.getElementById('stop').disabled = !isPlaying;
 }
 
 
