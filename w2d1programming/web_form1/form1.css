@@ -31,3 +31,16 @@ input[type="password"], input[type="text"] {
     height: 40px;
     border-radius: 2px;
 }
+
+#label-url {
+    margin-top: 16px;
+    margin-bottom: 12px;
+}
+
+.invalid {
+    border-color: red;
+}
+
+.valid {
+    border-color: green;
+}
