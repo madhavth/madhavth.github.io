@@ -10,9 +10,8 @@
 }
 
 footer {
+    float: bottom;
     flex-direction: row;
-    position: absolute;
-    bottom: 0;
     width: 100%;
     background: cyan;
     padding: 4px;

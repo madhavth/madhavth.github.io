@@ -1,0 +1,33 @@
+#container {
+    display: grid;
+
+}
+
+.help {
+    margin-bottom: 16px;
+    color: #5d636e;
+}
+
+label {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+#submit {
+    background-color: #0F00FF;
+    color: white;
+    width: 200px;
+    padding: 8px;
+    margin-top: 16px;
+    border-radius: 8px;
+
+}
+
+#submit[disabled=disabled], #submit:disabled {
+    background-color: #5d636e;
+}
+
+input[type="password"], input[type="text"] {
+    height: 40px;
+    border-radius: 2px;
+}
