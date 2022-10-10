@@ -1,7 +1,4 @@
-import './animations.js';
-
-
-"use strict";
+import {ANIMATIONS} from './animations.js';
 
 let animationId = null;
 let isTurboMode = false;
@@ -14,7 +11,7 @@ function initSize() {
     "use strict";
     sizeValues.Tiny = "7pt";
     sizeValues.Small = "10pt";
-    sizeValuesMedium = "12pt";
+    sizeValues.Medium = "12pt";
     sizeValues.Large = "16pt";
     sizeValues["Extra Large"] = "24pt";
     sizeValues.XXL = "32pt";
@@ -57,6 +54,7 @@ function startup() {
 }
 
 function startAnimation() {
+    "use strict";
     isPlaying = true;
     toggleButtonDisability();
 
@@ -87,6 +85,7 @@ function stopAnimation(resetFrameIndex = true) {
 }
 
 function animationChanged(newAnimation) {
+    "use strict";
     whichOne = newAnimation;
     if (isPlaying) {
         stopAnimation();
@@ -95,12 +94,14 @@ function animationChanged(newAnimation) {
 }
 
 function textSizeChanged(textSizeOption) {
+    "use strict";
     document.getElementById('text-area')
         .style.fontSize = sizeValues[textSizeOption.value];
 }
 
 
 function toggleTurbo(isChecked) {
+    "use strict";
     isTurboMode = isChecked;
     if (isPlaying) {
         stopAnimation(false);
@@ -109,6 +110,7 @@ function toggleTurbo(isChecked) {
 }
 
 function toggleButtonDisability() {
+    "use strict";
     document.getElementById('start').disabled = isPlaying;
     document.getElementById('stop').disabled = !isPlaying;
 }
