@@ -1,5 +1,8 @@
 import './animations.js';
 
+
+"use strict";
+
 let animationId = null;
 let isTurboMode = false;
 let whichOne = '';
@@ -8,12 +11,13 @@ let isPlaying = false;
 let lastFrameIndex = 0;
 
 function initSize() {
-    sizeValues["Tiny"] = "7pt";
-    sizeValues["Small"] = "10pt";
-    sizeValues["Medium"] = "12pt";
-    sizeValues["Large"] = "16pt";
+    "use strict";
+    sizeValues.Tiny = "7pt";
+    sizeValues.Small = "10pt";
+    sizeValuesMedium = "12pt";
+    sizeValues.Large = "16pt";
     sizeValues["Extra Large"] = "24pt";
-    sizeValues["XXL"] = "32pt";
+    sizeValues.XXL = "32pt";
 }
 
 initSize();
