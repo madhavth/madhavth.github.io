@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>W2D2 Quiz</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
+    <script>
+        // initialize mocha
+        mocha.setup('bdd');
+        // chai has a lot of stuff, let's make assert global
+        let assert = chai.assert;
+
+    </script>
+
+    <script>
+        // write your code for the function longestNoSapce() here
+        // remember it can take any amount of strings!
+        function longestNoSpace(...arr)  {
+            if(arr.length === 0) {
+                return 0;
+            }
+
+            let noSpacesElements = arr.filter( (e) => {
+                return e.split(" ").length === 1;
+            });
+
+            if(noSpacesElements.length === 0) {
+                return 0;
+            }
+
+            noSpacesElements.sort();
+
+            return noSpacesElements[noSpacesElements.length-1].length;
+        }
+
+    </script>
+    <script src="code.js"></script>
+    <script>
+        describe("longestNoSpace", function () {
+            it("returns 0 if given zero parameters", () => {
+                assert.equal(longestNoSpace(), 0);
+            });
+            it("returns 0 if given a single string that contains a space", () => {
+                assert.equal(longestNoSpace("a test"), 0);
+            })
+            it("returns 0 if given only strings that contains spaces", () => {
+                assert.equal(longestNoSpace("this is","a test"), 0);
+            });
+            it("returns the length of the string if given a single string without a space", () => {
+                assert.equal(longestNoSpace("hello"), 5);
+            });
+            it("returns the length of the longest string if given multiple strings without spaces", () => {
+                assert.equal(longestNoSpace("hello", "world!"), 6);
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+<div id="mocha"></div>
+<script>
+    mocha.run();
+
+</script>
+</body>
+
+</html>
