@@ -82,10 +82,13 @@ function createCircles(reset = true, circleCount = numberOfCircles) {
         resetCircles();
     }
 
+    const circlesList = [];
     for (let i = 0; i < circleCount; i++) {
         const circle = createCircle(initWidth, i);
-        $("#container").append(circle);
+        circlesList.push(circle);
     }
+
+    $("#container").append(circlesList);
 }
 
 function resetCircles() {
