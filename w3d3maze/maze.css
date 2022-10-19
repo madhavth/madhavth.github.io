@@ -45,8 +45,18 @@ div.boundary {
 
 div.boundary.example {
     margin: auto;
+    text-align: center;
+    display: flex;
     width: 100px;
+    color: blue;
+    /*justify-content: center;*/
+}
+
+div#progress {
+    background-color: green;
+    width: 0;
     height: 25px;
+    padding-top: 5px;
 }
 
 div.youlose {
