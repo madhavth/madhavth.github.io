@@ -23,22 +23,35 @@ $(function () {
 function setTextChangeListeners() {
     $("#textWidth").keyup(function () {
         initWidth = $(this).val();
+        if (Number.isNaN(initWidth)) {
+            initWidth = 0;
+        }
     });
 
     $("#textGrowthInterval").keyup(function () {
         growthTimeInMillis = parseInt($(this).val());
+        if (Number.isNaN(growthTimeInMillis)) {
+            growthTimeInMillis = 0;
+        }
     });
 
     $("#textGrowthAmount").keyup(function () {
         growthRate = parseInt($(this).val());
+        if (Number.isNaN(growthRate)) {
+            growthRate = 0;
+        }
     });
 
     $("#textCirclesNumber").keyup(function () {
         const oldNumberOfCircles = numberOfCircles;
         numberOfCircles = parseInt($(this).val());
 
-        if (numberOfCircles === undefined || numberOfCircles < 0) {
+        if (Number.isNaN(numberOfCircles) || numberOfCircles === undefined || numberOfCircles < 0) {
             numberOfCircles = 0;
+        }
+
+        if(!started) {
+            return;
         }
 
         changeNumberOfCircles(oldNumberOfCircles, numberOfCircles);
@@ -77,10 +90,11 @@ function setDefaults() {
 }
 
 function createCircles(reset = true, circleCount = numberOfCircles) {
-    started = true;
     if (reset) {
         resetCircles();
     }
+
+    started = true;
 
     const circlesList = [];
     for (let i = 0; i < circleCount; i++) {
