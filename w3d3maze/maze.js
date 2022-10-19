@@ -8,32 +8,49 @@ const statusGameInProgress = "Avoid touching boundaries";
 let gameInProgress = false;
 
 $(function () {
-    $("#start").click(
-        function () {
-            if (!gameInProgress) {
-                startGame();
-            }
-        }
-    );
+    const $start = $("#start");
+    const $end = $("#end");
 
-    $("#end").mouseover(
-        function () {
-            if (gameInProgress) {
-                gameWon();
-            }
+    $start.click(function () {
+        if (!gameInProgress) {
+            startGame();
         }
-    );
+    });
 
-    $("div.boundary").mouseover(function(event) {
-        if(gameInProgress) {
+    $end.mouseover(function () {
+        if (gameInProgress) {
+            gameWon();
+        }
+    });
+
+    $("div.boundary").mouseover(function (event) {
+        if (!gameInProgress) {
+            return;
+        }
+
+        if (event.target.id === "boundary1") {
+            gameLost("div#boundary1.boundary");
+            event.stopImmediatePropagation();
+            return false;
+        }
+
+        gameLost();
+    });
+
+    const $maze = $("div#maze");
+
+    $maze.mouseleave(function () {
+        if (gameInProgress) {
             gameLost();
         }
     });
 
-    $("div#maze").mouseleave(function() {
-       if(gameInProgress) {
-           gameLost();
-       }
+    const $progress = $(".boundary.example");
+
+    $maze.mousemove(function (event) {
+        if (gameInProgress) {
+            // calculateProgress(event, $progress, $start, $end);
+        }
     });
 
 });
@@ -44,9 +61,9 @@ function startGame() {
     $("#status").text(statusGameInProgress);
 }
 
-function gameLost() {
+function gameLost(selector = "#maze div.boundary") {
     gameInProgress = false;
-    $("#maze div.boundary").addClass("youlose");
+    $(selector).addClass("youlose");
     $("#status").text(statusGame + "\n" + statusGameLost);
 }
 
